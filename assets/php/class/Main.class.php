@@ -164,7 +164,7 @@ class Main extends Primary{ //load parent primary
 			$html = '
 				<div data-spy="scroll" data-target="#nav-target" class="content-side-right nav-spy"> 
 					
-					'.$this->pageExterne('../html/test.html').'
+					'.$this->pageExterne2('../html/test.html').'
 					'.$this->pageExterne().'
 					
 					 
