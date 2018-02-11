@@ -164,6 +164,7 @@ class Main extends Primary{ //load parent primary
 			$html = '
 				<div data-spy="scroll" data-target="#nav-target" class="content-side-right nav-spy"> 
 					
+					'.$this->pageExterne('../html/test.html').'
 					'.$this->pageExterne().'
 					
 					 
@@ -257,7 +258,23 @@ return $html;
 	
 	
 	
+	public function pageExterne2 ($lien){	
 	
+	$html= file_get_contents($lien, true)  ;
+	$content_replace = array(
+     '$titre'   => 'Title hfjkdhfsjdhkfdkshjfkdhsjfhsjkhfjsdkhjkfhdsjk',
+    '{$title}'  => 'Title',
+    '{$address}'=> 'Your address',
+    '{$price}'  => 'Price Goes here',
+    '{$link}'   => 'Link',
+    );
+
+$content = strtr($html, $content_replace );
+	
+	
+	return $content;
+	
+	}
 	
 	
 	
