@@ -18,8 +18,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
 	//Connexion avec une base de données
 	if(!$erreur){
-		$db = mysqli_connect("127.0.0.1", "root", "") or die(mysql_error());
-		mysqli_select_db($db, "users") or die(mysql_error());
+		$db = mysqli_connect("gator3214.hostgator.com", "inm5001", "cours5001") or die(mysql_error());
+		mysqli_select_db($db, "inm5001_users") or die(mysql_error());
 
 		//fetch donnees de la BD
 		$sql = "SELECT * FROM users";
@@ -28,8 +28,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 		if ($result->num_rows > 0) {
 		    while($row = $result->fetch_assoc()) {
 
-		    	$compareUser = strcmp($row["username"], $username);
-		    	$comparePass = strcmp($row["password"], $password);
+		    	$compareUser = strcmp($row["Username"], $username);
+		    	$comparePass = strcmp($row["Password"], $password);
 
 
 		    	if($compareUser == 0 && $comparePass == 0){

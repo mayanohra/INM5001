@@ -1,17 +1,17 @@
 <?php
 
 function insertData($username, $firstname, $lastname, $telephone, $dateNaissance, $email){
-	$db = mysqli_connect("127.0.0.1", "root", "") or die(mysql_error());
-		mysqli_select_db($db, "users") or die(mysql_error());
+	$db = mysqli_connect("gator3214.hostgator.com", "inm5001", "cours5001") or die(mysql_error());
+		mysqli_select_db($db, "inm5001_users") or die(mysql_error());
 
 	//ALWAYS ESCAPE STRINGS IF YOU HAVE RECEIVED THEM FROM USERS
-	$findUser = mysqli_query($db, "SELECT * FROM users WHERE username='$username'");
+	$findUser = mysqli_query($db, "SELECT * FROM users WHERE Username='$username'");
 	$row = mysqli_fetch_array($findUser); 
 
-	$sql = "UPDATE users SET name='$firstname' WHERE id='1'";
+	$sql = "UPDATE users SET FirstName='$firstname' WHERE id='1'";
 	$res = mysqli_query($db, $sql);
 
-	$sql_name = "SELECT * FROM users WHERE name='$firstname'";
+	$sql_name = "SELECT * FROM users WHERE FirstName='$firstname'";
 	$result = $db->query($sql_name);
 
 	// if ($result->num_rows > 0) {
