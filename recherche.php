@@ -11,5 +11,8 @@
 			<button type="submit">Rechercher</button>
 		</form>
 	</div>
+	<div id="msgErreur"></div>
+
+	<script type="text/javascript" src="application.js"></script>
 </body>
 </html>

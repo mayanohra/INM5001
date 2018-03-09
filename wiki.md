@@ -59,3 +59,33 @@ Each database contains tables
     maya$ git add index.php
     maya$ git commit -m "Texte du commit"
     maya$ git push origin master
+    
+#MySQL
+
+## Connect to DB
+
+	$db = mysqli_connect("gator3214.hostgator.com", "inm5001", "cours5001") or die(mysql_error());
+	mysqli_select_db($db, "inm5001_users") or die(mysql_error());
+
+## Fetch data from DB
+
+	$query = mysqli_query($db, "SELECT * FROM annonces WHERE service='chauffeur'");
+	
+## Loop over result
+
+	while($data = mysqli_fetch_array($query)){
+			echo $data['idUser'];
+			echo $data['service'];
+		}
+
+### Exemple
+
+	$db = mysqli_connect("gator3214.hostgator.com", "inm5001", "cours5001") or die(mysql_error());
+		mysqli_select_db($db, "inm5001_users") or die(mysql_error());
+
+	$query = mysqli_query($db, "SELECT * FROM annonces WHERE Service='$keyword'");
+
+	while($data = mysqli_fetch_array($query)){
+		echo $data['idUser'];
+		echo $data['service'];
+	}
