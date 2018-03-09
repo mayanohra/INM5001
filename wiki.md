@@ -1,5 +1,13 @@
 # Coding guidelines
 
+# phpMyAdmin
+
+## What is phpMyAdmin
+
+> Il s'agit de l'une des plus célèbres interfaces pour gérer une base de données MySQL sur un serveur PHP...
+Cette interface pratique permet d'exécuter, très facilement et sans grandes connaissances en bases de données, des requêtes comme les créations de table de données, insertions, mises à jour, suppressions et modifications de structure de la base de données, ainsi que l'attribution et la révocation de droits et l'import/export.
+*wikipédia [https://fr.wikipedia.org/wiki/PhpMyAdmin](https://fr.wikipedia.org/wiki/PhpMyAdmin)*
+
 ## Where is my database? - Host Gator
 
 [https://gator3214.hostgator.com:2083](https://gator3214.hostgator.com:2083/)<br/>
