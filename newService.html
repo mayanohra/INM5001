@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Site web du restaurant</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.0/semantic.min.css"/>
+</head>
+<body>
+  <!--affichage du logo-->
+  <a href="acceuil.html"><img class="ui middle aligned small image" src="Logo.png"></a>
+  <span>TITRE DU SITE</span>
+
+  <div class="ui hidden divider"></div>
+
+  <div class="ui middle aligned grid child">
+    <div class="column">
+      <div class="ui center aligned page grid">
+        <div class="eight wide  column">
+          <div class="ui left aligned segment">
+            <h4 class="ui dividing header">Recherche</h4>
+
+            <form class="ui form" method="post" action="verif_search.php">
+              <div class="field">
+                <label>Type du service:</label>
+                <div class="field">
+                  <select>
+                    <option value="1">Offre</option>
+                    <option value="0">Demande</option>
+                  </select>
+                </div>
+              </div>
+              <div class="field">
+                <label>Catégorie du service:</label>
+                <div class="field">
+                  <select>
+                    <option value="4">Aucun</option>
+                    <option value="3">Denégement</option>
+                    <option value="2">Déménagement</option>
+                    <option value="1">gardinage</option>
+                    <option value="0">Aide au devoirs</option>
+                  </select>
+                </div>
+              </div>
+              <div class="field">
+                <label>Disponibilités:</label>
+                  <div class="field">
+                    <input type="date" name="dispo" placeholder="dispo">
+                  </div>
+              </div>
+              <div class="field">
+                <label>Fourchete:</label>
+                <div class="field">
+                  <select>
+                    <option value="2">6 Am  -> 12 Am</option>
+                    <option value="1">12 Am -> 6 Pm</option>
+                    <option value="0">6 Pm  -> 12 Pm</option>
+                  </select>
+                </div>
+              </div>
+              <div class="field">
+                <label>Taux horaire:(Suggérer)</label>
+                <div class="ui right labeled input">
+                  <label for="amount" class="ui label">$</label>
+                  <input type="text" placeholder="Amount" name="amount" id="cash">
+                  <div class="ui basic label">.00</div>
+                </div>
+              </div>
+              <button class="ui inverted blue button" type="submit"> Valider </button>
+              <a href="profilBlock.html"><input type="button" value="Annuler" class="ui inverted blue button"></a>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <br><br><br>
+
+</body>
+</html>
