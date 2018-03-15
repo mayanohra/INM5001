@@ -12,7 +12,7 @@ Cette interface pratique permet d'exécuter, très facilement et sans grandes co
 
 [https://gator3214.hostgator.com:2083](https://gator3214.hostgator.com:2083/)<br/>
 **username** inm5001<br/>
-**password** cours5001
+**password** ecrivez moi si vous voulez le mot de passe
 
 click on **phpMyAdmin** under **Databases**
 
@@ -33,7 +33,9 @@ Each database contains tables
 
 **[gator3214.hostgator.com](http://gator3214.hostgator.com)** host name<br/>
 **inm5001** username<br/>
-**cours5001** password<br/>
+**cours5001** 
+
+rd<br/>
 **inm5001_users** database name
 
 # Git - Step by Step
