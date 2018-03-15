@@ -1,5 +1,20 @@
 # Coding guidelines
 
+# Granting privileges
+
+[link](https://gator3214.hostgator.com:2083) to hostgator
+
+**username**: inm5001
+
+**password**: same as the database password
+
+got to **Remote MySQL**  and enter your ip address
+
+##How to find my ip
+
+got to [google](www.google.com) and search for **what is my ip**
+
+
 # phpMyAdmin
 
 ## What is phpMyAdmin
