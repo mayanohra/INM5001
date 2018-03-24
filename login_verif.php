@@ -47,7 +47,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 		$db->close();
 	}
 
-	if($erreurl){
+	if($erreur){
 		header("location:logIn.html");
 		exit;
 	}
