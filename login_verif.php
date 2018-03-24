@@ -3,15 +3,15 @@ $msgErreur = "";
 $erreur = false;
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
-	$username = $_POST['username'];
-	$password = $_POST['password'];
+	$username = str_replace(" ", "", $_POST['username']);
+	$password = str_replace(" ", "", $_POST['password']);
 
-	if(is_null($username) || empty(str_replace(" ", "", $username))){
+	if(is_null($username) || empty($username)){
 		$msgErreur .= "Veuillez entrer un nom d'utilisateur.";
 		$erreur = true;
 	}
 
-	if(is_null($password) || empty(str_replace(" ", "", $password))){
+	if(is_null($password) || empty($password)){
 		$msgErreur .= "Veuillez entrer un mot de passe.";
 		$erreur = true;
 	}
@@ -22,31 +22,34 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 		mysqli_select_db($db, "inm5001_users") or die(mysql_error());
 
 		//fetch donnees de la BD
-		$sql = "SELECT * FROM users";
+		$sql = "SELECT * FROM users WHERE Username = '$username'";
 		$result = $db->query($sql);
 
 		if ($result->num_rows > 0) {
 		    while($row = $result->fetch_assoc()) {
 
 		    	$compareUser = strcmp($row["Username"], $username);
-		    	$comparePas_s = strcmp($row["Password"], $password);
+		    	$comparePass = strcmp($row["Password"], $password);
 
 
 		    	if($compareUser == 0 && $comparePass == 0){
-		    		
-		    		header("location:profile.php?username=$username");
+		    		header("location:profilModif.html?username=$username");
 		    		exit;
-		    
-		    	}elseif($compareUser == 0 && $comparePass != 0){
-
+		    	}else if($compareUser == 0 && $comparePass != 0){
+		    		$erreur = true;
 					$msgErreur .= "le nom d'utilisateur ou le mot de passe 
 		    			ne sont pas valide.";
 		    	}
 		    }
-		} 
+		}else{
+			$erreur = true;
+		}
 		$db->close();
 	}
 
-	header("location:logIn.html");
-	exit;
+	if($erreurl){
+		header("location:logIn.html");
+		exit;
+	}
+
 }
