@@ -1,32 +1,49 @@
 <?php
 $listeEL = $_POST['service'];
-$dateEl = $_POST['date'];
-$rateEl = $_POST['rate'];
 
+verifyDate();
 // find today's date to compare it with the date selected
-$today = new DateTime("now");
-$todayDate = $today->format('Y-m-d');
+function verifyDate(){
+	$dateEl = $_POST['date'];
+	if($dateEl != ""){
+		//today date
+		$today = new DateTime("now");
+		$todayDate = $today->format('Y-m-d');
 
-$selectYear = substr($dateEl, 0, 4);
-$selectMonth = substr($dateEl, 5, 2);
-$selectDay = substr($dateEl, 8, 2);
+		//selected date
 
-$todayYear = substr($todayDate, 0, 4);
-$todayMonth = substr($todayDate, 5, 2);
-$todayDay = substr($todayDate, 8, 2);
+		$selectYear = substr($dateEl, 0, 4);
+		$selectMonth = substr($dateEl, 5, 2);
+		$selectDay = substr($dateEl, 8, 2);
 
-if($dateEl != ""){
-	if($selectYear >= $todayYear && $selectMonth >= $todayMonth 
-		&& $selectDay >= $todayDay){
+		$todayYear = substr($todayDate, 0, 4);
+		$todayMonth = substr($todayDate, 5, 2);
+		$todayDay = substr($todayDate, 8, 2);
 
-		verifyRate();
+		if($selectYear >= $todayYear && $selectMonth >= $todayMonth 
+			&& $selectDay >= $todayDay){
 
+			verifyRate();
+
+		}else{
+			//ERREUR TODO
+		}
 	}else{
 		//ERREUR TODO
 	}
-}else{
-	//ERREUR TODO
 }
+
+//verify if a valide rate was entered (>0)
+function verifyRate(){
+	$rateEl = $_POST['rate'];
+	
+	if($rateEl > 0){
+		connectDB();
+	}else{
+		//TODO: ERREUR
+	}
+}
+
 
 function choiceList(){
 	if(strcmp($listeEL, "garden")){
@@ -40,12 +57,13 @@ function choiceList(){
 	}
 }
 
-define("HOSTDB", "gator3214.hostgator.com");
-define("USERNAMEDB", "inm5001");
-define("PASSDB", "cours5001");
-define("DB", "inm5001_users");
 
-function connectToDB(){
+function connectDB(){
+	define("HOSTDB", "gator3214.hostgator.com");
+	define("USERNAMEDB", "inm5001");
+	define("PASSDB", "cours5001");
+	define("DB", "inm5001_users");
+
 	$db = mysqli_connect(HOSTDB, USERNAMEDB, PASSDB) or die(mysql_error());
 		mysqli_select_db($db, DB) or die(mysql_error());
 }
