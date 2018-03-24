@@ -18,7 +18,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
 	//Connexion avec une base de données
 	if(!$erreur){
-		$db = mysqli_connect("gator3214.hostgator.com", "inm5001", "cours5001") or die(mysql_error());
+		$db = mysqli_connect("gator3214.hostgator.com", "inm5001_maya@localhost", "cours5001") or die(mysql_error());
 		mysqli_select_db($db, "inm5001_users") or die(mysql_error());
 
 		//fetch donnees de la BD
@@ -29,7 +29,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 		    while($row = $result->fetch_assoc()) {
 
 		    	$compareUser = strcmp($row["Username"], $username);
-		    	$comparePass = strcmp($row["Password"], $password);
+		    	$comparePas_s = strcmp($row["Password"], $password);
 
 
 		    	if($compareUser == 0 && $comparePass == 0){
@@ -47,6 +47,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 		$db->close();
 	}
 
-	header("location:index.php");
+	header("location:logIn.html");
 	exit;
 }
