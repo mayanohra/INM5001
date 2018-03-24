@@ -26,10 +26,10 @@ function verifyDate(){
 			verifyRate();
 
 		}else{
-			//ERREUR TODO
+			redirect();
 		}
 	}else{
-		//ERREUR TODO
+		redirect();
 	}
 }
 
@@ -40,7 +40,7 @@ function verifyRate(){
 	if($rateEl > 0){
 		connectDB();
 	}else{
-		//TODO: ERREUR
+		redirect();
 	}
 }
 
@@ -57,7 +57,7 @@ function choiceList(){
 	}
 }
 
-
+//Connect to Database
 function connectDB(){
 	define("HOSTDB", "gator3214.hostgator.com");
 	define("USERNAMEDB", "inm5001");
@@ -68,7 +68,11 @@ function connectDB(){
 		mysqli_select_db($db, DB) or die(mysql_error());
 }
 
-
+//Redirects with a Error 400
+function redirect(){
+	$userInput = json_encode($_POST);
+	header("HTTP/1.0 400 entries not valid $userInput");
+} 
 
 
 // if($keyword != null){
