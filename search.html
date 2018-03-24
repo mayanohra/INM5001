@@ -19,7 +19,7 @@
           <div class="ui left aligned segment">
             <h4 class="ui dividing header">Recherche</h4>
 
-            <form class="ui form" action="acceuil.html">
+            <form class="ui form" action="validSearch.php" method="POST">
               <div class="field">
                 <label>Catégorie du service:</label>
                 <div class="ui icon input">
@@ -28,13 +28,12 @@
               </div>
               <div class="field">
                 <label>Type du service:</label>
-                <div class="field">
-                  <select>
-                    <option value="4">Aucun</option>
-                    <option value="3">Denégement</option>
-                    <option value="2">Déménagement</option>
-                    <option value="1">gardinage</option>
-                    <option value="0">Aide au devoirs</option>
+                <div>
+                  <select name="service" class="service">
+                    <option value="moving">Moving</option>
+                    <option value="snow">Snow cleaning</option>
+                    <option value="garden">Gardening</option>
+                    <option value="homework">Homework</option>
                   </select>
                 </div>
               </div>
