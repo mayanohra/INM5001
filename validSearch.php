@@ -100,7 +100,6 @@ function closeConnection($db){
 //Redirects with a Error 400
 function redirect(){
 	if(!$GLOBALS['error']){
-		// echo json_encode($_POST);
 		header("location: acceuil.html");
 	}else{
 		$userInput = json_encode($_POST);
