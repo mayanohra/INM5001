@@ -24,10 +24,10 @@
                 <label>Name</label>
                 <div class="two fields">
                   <div class="field">
-                    <input type="text" name="shipping[first-name]" placeholder="First Name">
+                    <input type="text" id="firstName" name="firstName" placeholder="First Name" value="">
                   </div>
                   <div class="field">
-                    <input type="text" name="shipping[last-name]" placeholder="Last Name">
+                    <input type="text" id="lastName" name="lastName" placeholder="Last Name">
                   </div>
                 </div>
               </div>
@@ -44,20 +44,26 @@
                 </div>
               </div>
               <div class="field">
-                <label>Billing Address</label>
+                <label>Address</label>
                 <div class="fields">
                   <div class="twelve wide field">
-                    <input type="text" name="shipping[address]" placeholder="Street Address">
+                    <input type="text" id="address" name="address" placeholder="Street Address">
                   </div>
                   <div class="four wide field">
-                    <input type="text" name="shipping[address-2]" placeholder="Apt #">
+                    <input type="text" id="city" name="city" placeholder="City">
+                  </div>
+                  <div class="four wide field">
+                    <input type="text" id="province" name="province" placeholder="Province">
+                  </div>
+                  <div class="four wide field">
+                    <input type="text" id="country" name="country" placeholder="Country">
                   </div>
                 </div>
               </div>
               <div class="field">
                 <label>Phone number</label>
                   <div class="field">
-                    <input type="text" name="PhoneNbr" placeholder="Phone number">
+                    <input type="text" id="phoneNumber" name="PhoneNbr" placeholder="Phone number">
                   </div>
               </div>
               <div class="field">
@@ -72,13 +78,13 @@
               <div class="field">
                 <label>Birthday</label>
                   <div class="field">
-                    <input type="date" name="birthday" placeholder="Birthday">
+                    <input type="date" id="DOB" name="birthday" placeholder="Birthday">
                   </div>
               </div>
               <div class="field">
                 <label>E-mail</label>
                   <div class="field">
-                    <input type="email" name="Email" placeholder="abc...@exemple.com">
+                    <input type="email" id="email" name="Email" placeholder="abc...@exemple.com">
                   </div>
               </div>
               <button class="ui inverted blue button" type="submit"> Valider </button>
@@ -94,5 +100,7 @@
   <a href="newService.html"><input type="button" value="Ajouter Service" class="ui inverted blue button"></a>
   <div class="ui hidden divider"></div>
 
+  <script type="text/javascript" src="profileInfo.js">
+  </script>
 </body>
 </html>
