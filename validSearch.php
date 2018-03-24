@@ -1,7 +1,8 @@
 <?php
-$listeEL = $_POST['service'];
+define("LIST_EL", $_POST['service']);
 
 verifyDate();
+
 // find today's date to compare it with the date selected
 function verifyDate(){
 	$dateEl = $_POST['date'];
@@ -20,11 +21,15 @@ function verifyDate(){
 		$todayMonth = substr($todayDate, 5, 2);
 		$todayDay = substr($todayDate, 8, 2);
 
-		if($selectYear >= $todayYear && $selectMonth >= $todayMonth 
-			&& $selectDay >= $todayDay){
-
+		//Same month
+		if($selectYear == $todayYear && $selectMonth == $todayMonth && $selectDay >= $todayDay){
 			verifyRate();
-
+		//Same year, different month
+		}else if($selectYear == $todayYear && $selectMonth > $todayMonth){
+			verifyRate();
+		//Different year
+		}else if($selectYear > $todayYear){
+			verifyRate();
 		}else{
 			redirect();
 		}
@@ -46,19 +51,23 @@ function verifyRate(){
 
 
 function choiceList(){
-	if(strcmp($listeEL, "garden")){
+	if(strcmp(LIST_EL, "garden")){
 
-	}else if(strcmp($listeEL, "moving")){
+	}else if(strcmp(LIST_EL, "moving")){
 
-	}else if(strcmp($listeEl, "snow")){
+	}else if(strcmp(LIST_EL, "snow")){
 
-	}else if(strcmp($listeEL, "homework")){
+	}else if(strcmp(LIST_EL, "homework")){
 
 	}
 }
 
 //Connect to Database
 function connectDB(){
+	$serviceEl = $_POST['service'];
+	$rateEl = $_POST['rate'];
+	$dateEl = $_POST['date'];
+
 	define("HOSTDB", "gator3214.hostgator.com");
 	define("USERNAMEDB", "inm5001");
 	define("PASSDB", "cours5001");
@@ -66,6 +75,15 @@ function connectDB(){
 
 	$db = mysqli_connect(HOSTDB, USERNAMEDB, PASSDB) or die(mysql_error());
 		mysqli_select_db($db, DB) or die(mysql_error());
+
+	fetchResultDB($db, $serviceEl, $rateEl, $dateEl);
+}
+
+function fetchResultDB($db, $service, $rate, $date){
+	$query = mysqli_query($db, 
+		"CREATE TABLE resultSearch AS (SELECT * FROM annonces WHERE Service='$service' 
+			AND Rate>='$rate' AND startAvailable<='$date')"
+	);
 }
 
 //Redirects with a Error 400
@@ -73,17 +91,3 @@ function redirect(){
 	$userInput = json_encode($_POST);
 	header("HTTP/1.0 400 entries not valid $userInput");
 } 
-
-
-// if($keyword != null){
-
-// 	$db = mysqli_connect("gator3214.hostgator.com", "inm5001", "cours5001") or die(mysql_error());
-// 		mysqli_select_db($db, "inm5001_users") or die(mysql_error());
-
-// 	$query = mysqli_query($db, "SELECT * FROM annonces WHERE Service='$keyword'");
-
-
-// }else{
-// 	header("location: recherche.php");
-// }
-// 	
