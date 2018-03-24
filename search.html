@@ -19,7 +19,7 @@
           <div class="ui left aligned segment">
             <h4 class="ui dividing header">Recherche</h4>
 
-            <form class="ui form" action="validSearch.php" method="POST">
+            <form class="ui form" action="validSearch.php" method="POST" name="form">
               <div class="field">
                 <label>Service category</label>
                 <div class="ui icon input">
@@ -40,14 +40,14 @@
               <div class="field">
                 <label>Availability:</label>
                   <div class="field">
-                    <input type="date" name="dispo" placeholder="dispo">
+                    <input type="date" name="date" placeholder="date">
                   </div>
               </div>
               <div class="field">
                 <label>Hourly rate:</label>
                 <div class="ui right labeled input">
                   <label for="amount" class="ui label">$</label>
-                  <input type="text" placeholder="Amount" id="amount">
+                  <input type="text" placeholder="rate" id="rate" name="rate">
                   <div class="ui basic label">.00</div>
                 </div>
               </div>
@@ -61,6 +61,8 @@
   </div>
 
   <br><br><br>
+
+  <script type="text/javascript" src="application.js"></script>  
 
 </body>
 </html>
