@@ -1,5 +1,6 @@
 <?php
 define("LIST_EL", $_POST['service']);
+$GLOBALS['error'] = false;
 
 verifyDate();
 
@@ -31,9 +32,11 @@ function verifyDate(){
 		}else if($selectYear > $todayYear){
 			verifyRate();
 		}else{
+			$GLOBALS['error'] = true;
 			redirect();
 		}
 	}else{
+		$GLOBALS['error'] = true;
 		redirect();
 	}
 }
@@ -45,6 +48,7 @@ function verifyRate(){
 	if($rateEl > 0){
 		connectDB();
 	}else{
+		$GLOBALS['error'] = true;
 		redirect();
 	}
 }
@@ -84,10 +88,22 @@ function fetchResultDB($db, $service, $rate, $date){
 		"CREATE TABLE resultSearch AS (SELECT * FROM annonces WHERE Service='$service' 
 			AND Rate>='$rate' AND startAvailable<='$date')"
 	);
+
+	closeConnection($db);
+	redirect();
+}
+
+function closeConnection($db){
+	mysqli_close($db);
 }
 
 //Redirects with a Error 400
 function redirect(){
-	$userInput = json_encode($_POST);
-	header("HTTP/1.0 400 entries not valid $userInput");
+	if(!$GLOBALS['error']){
+		// echo json_encode($_POST);
+		header("location: acceuil.html");
+	}else{
+		$userInput = json_encode($_POST);
+		header("HTTP/1.0 400 entries not valid $userInput");
+	}
 } 
