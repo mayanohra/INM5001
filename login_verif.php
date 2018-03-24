@@ -33,7 +33,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
 
 		    	if($compareUser == 0 && $comparePass == 0){
-		    		header("location:profile.php?username=$username");
+		    		header("location:profilModif.html?username=$username");
 		    		exit;
 		    	}else if($compareUser == 0 && $comparePass != 0){
 		    		$erreur = true;
@@ -47,7 +47,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 		$db->close();
 	}
 
-	if($erreur){
+	if($erreurl){
 		header("location:logIn.html");
 		exit;
 	}
