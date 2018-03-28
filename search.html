@@ -6,10 +6,47 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.0/semantic.min.css"/>
 </head>
 <body>
-  <!--affichage du logo-->
-  <a href="acceuil.html"><img class="ui middle aligned small image" src="Logo.png"></a>
-  <span>TITRE DU SITE</span>
 
+  <div class="ui stackable menu">
+    <div class="item active">
+      <img src="logo.png">
+    </div>
+    <a class="item" href="acceuil.html">
+      Home
+    </a>
+    <a class="item">
+      Services
+    </a>
+    <a class="item" href="search.html">
+      <i class="search link icon"></i>
+      Search
+    </a>
+
+    <div class="right menu">
+      <a class="item">
+        Forum
+      </a>
+      <a class="item">
+        Settings
+      </a>
+      <a class="item">
+        Help
+      </a>
+      <div class="item">
+        <a href="pageInscrip.html"><div class="ui primary button">Sign up</div></a>
+      </div>
+      <div class="item">
+        <a href="logIn.html"><div class="ui primary button">Log-in</div></a>
+      </div>
+      <a class="item">
+        <i class="large icons">
+          <i class="circular blue user icon"></i>
+        </i>
+      </a>
+    </div>
+  </div>
+
+  <div class="ui hidden divider"></div>
   <div class="ui hidden divider"></div>
 
   <div class="ui middle aligned grid child">
@@ -17,19 +54,13 @@
       <div class="ui center aligned page grid">
         <div class="eight wide  column">
           <div class="ui left aligned segment">
-            <h4 class="ui dividing header">Recherche</h4>
+            <h4 class="ui dividing header">Search</h4>
 
             <form class="ui form" action="validSearch.php" method="POST" name="form">
               <div class="field">
-                <label>Service category</label>
-                <div class="ui icon input">
-                  <input type="text" placeholder="Username" name="username" id="username" /> <i class="user icon"></i>
-                </div>
-              </div>
-              <div class="field">
                 <label>Type of service:</label>
-                <div>
-                  <select name="service" class="service">sse
+                <div class="field">
+                  <select name="service" class="service">
                     <option value="moving">Moving</option>
                     <option value="snow">Snow cleaning</option>
                     <option value="garden">Gardening</option>
@@ -39,9 +70,9 @@
               </div>
               <div class="field">
                 <label>Availability:</label>
-                  <div class="field">
-                    <input type="date" name="date" placeholder="date">
-                  </div>
+                <div class="field">
+                  <input type="date" name="date" placeholder="date">
+                </div>
               </div>
               <div class="field">
                 <label>Hourly rate:</label>
@@ -60,9 +91,10 @@
     </div>
   </div>
 
-  <br><br><br>
+  <div class="ui hidden divider"></div>
+  <div class="ui hidden divider"></div>
 
-  <script type="text/javascript" src="application.js"></script>  
+  <script type="text/javascript" src="application.js"></script>
 
 </body>
 </html>
