@@ -48,8 +48,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 	}
 
 	if($erreur){
-		header("location:logIn.html");
-		exit;
+		header("HTTP/1.0 400 username or/and password wrong");
+		// header("location:logIn.html");
+		// exit;
 	}
 
 }
