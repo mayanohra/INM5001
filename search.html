@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Site web du restaurant</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.0/semantic.min.css"/>
+</head>
+<body>
+  <!--affichage du logo-->
+  <a href="acceuil.html"><img class="ui middle aligned small image" src="Logo.png"></a>
+  <span>TITRE DU SITE</span>
+
+  <div class="ui hidden divider"></div>
+
+  <div class="ui middle aligned grid child">
+    <div class="column">
+      <div class="ui center aligned page grid">
+        <div class="eight wide  column">
+          <div class="ui left aligned segment">
+            <h4 class="ui dividing header">Recherche</h4>
+
+            <form class="ui form" action="validSearch.php" method="POST" name="form">
+              <div class="field">
+                <label>Service category</label>
+                <div class="ui icon input">
+                  <input type="text" placeholder="Username" name="username" id="username" /> <i class="user icon"></i>
+                </div>
+              </div>
+              <div class="field">
+                <label>Type of service:</label>
+                <div>
+                  <select name="service" class="service">sse
+                    <option value="moving">Moving</option>
+                    <option value="snow">Snow cleaning</option>
+                    <option value="garden">Gardening</option>
+                    <option value="homework">Homework</option>
+                  </select>
+                </div>
+              </div>
+              <div class="field">
+                <label>Availability:</label>
+                  <div class="field">
+                    <input type="date" name="date" placeholder="date">
+                  </div>
+              </div>
+              <div class="field">
+                <label>Hourly rate:</label>
+                <div class="ui right labeled input">
+                  <label for="amount" class="ui label">$</label>
+                  <input type="text" placeholder="rate" id="rate" name="rate">
+                  <div class="ui basic label">.00</div>
+                </div>
+              </div>
+              <button class="ui inverted blue button" type="submit"> Validate </button>
+              <a href="acceuil.html"><input type="button" value="Cancel" class="ui inverted blue button"></a>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <br><br><br>
+
+  <script type="text/javascript" src="application.js"></script>  
+
+</body>
+</html>

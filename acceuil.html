@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>À la pige</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.0/semantic.min.css"/>
+</head>
+<body>
+
+  <a href="acceuil.html"><img class="ui middle aligned small image" src="logoBIS.png"></a>
+  <span>A la Pige !</span>
+
+  <div class="ui hidden divider"></div>
+
+  <div class="ui stackable menu">
+    <div class="item active">
+      <img src="logoBIS.png">
+    </div>
+      <a class="item" href="acceuil.html">
+        Home
+      </a>
+      <a class="item">
+        Services
+      </a>
+      <a class="item" href="search.html">
+        <i class="search link icon"></i>
+        Search
+      </a>
+      <a class="item">
+        <form name="search">
+          <input type="search" size="52" placeholder="Search...">
+          <input type="submit" style="visibility: hidden;">
+        </form>
+      </a>
+      <div class="right menu">
+        <a class="item">
+          Forum
+        </a>
+        <a class="item">
+          Settings
+        </a>
+        <a class="item">
+          Help
+        </a>
+        <div class="item">
+          <a href="pageInscrip.html"><div class="ui primary button">Sign up</div></a>
+        </div>
+        <div class="item">
+          <a href="log.php"><div class="ui primary button">Log-in</div></a>
+        </div>
+        <a class="item">
+          <i class="large icons">
+            <i class="circular blue user icon"></i>
+          </i>
+        </a>
+      </div>
+    </div>
+
+    <div class="searchResult">
+      <ul id="searchList">
+      </ul>
+    </div>
+
+
+  <script type="text/javascript" src="searchFetch.js"></script>
+</body>
+</html>
