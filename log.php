@@ -1,49 +1,11 @@
-<?php
-session_start();
+  <?php   
+  
   $erreur      = "";
-  $username    = "";
-  $pass        = "";
-  $id          = "";
-  $success     = "";
+  
+  $erreur = isset($_GET["erreur"]); 
+              ?>
 
 
-  if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-    $username     = $_POST["username"];
-    $pass         = $_POST['pass'];
-
-    if ($username == "") {
-      $message = $message . " Veuillez entrer votre username. ";
-    } else if ($pass == ""){
-      $message = $message . " Veuillez entrer votre mot de passe.";
-    } else {
-
-    try {
-        $bdd = new PDO('mysql:host=localhost;dbname=INM5001;charset=utf8', 'root', 'root');
-        $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    } catch (Exception $e) {
-      die('Erreur : '.$e->getMessage());
-    }
-    $query=$bdd->prepare('SELECT username, pass
-        FROM members WHERE username = :username');
-
-        $query->bindValue(':username',$_POST['username'], PDO::PARAM_STR);
-        $query->execute();
-        $data=$query->fetch();
-    if ( $data['pass'] == $pass ) { // Acces OK !
-        $_SESSION['username'] = $data['username'];
-        $success = true;
-    } else {
-      $erreur = $erreur." Une erreur s'est produite, veuillez recommencez...";
-    }
-
-    if ($success) {
-      header("Location: confirmation.html?username=$username&amp;id=$id", true, 303);
-      exit;
-    }
-  }
-}
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -71,7 +33,7 @@ session_start();
               ?></b>
             </div>
 
-            <form class="ui form" action="log.php" method="POST">
+            <form class="ui form" action="profily.php" method="POST">
               <div class="field">
                 <label for="username">Username :</label>
                 <div class="ui icon input">
